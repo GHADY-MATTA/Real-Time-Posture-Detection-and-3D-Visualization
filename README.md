@@ -13,7 +13,7 @@
 
 *Live 3D visualization with posture classification (healthy/unhealthy) and animated model rotation based on real quaternion data.*
 
-![Demo](assets/demo.gif)
+![Demo](mpu-working.gif)
 
 ---
 
