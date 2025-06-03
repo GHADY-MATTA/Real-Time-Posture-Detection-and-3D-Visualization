@@ -1,72 +1,63 @@
-🎯 Real-Time Posture Detection and 3D Visualization Using MPU6050 + Processing
-Project Summary:
+# 🚀 Posture Tracker 3D — MPU6050 + Arduino + Processing Visualization
 
-I developed a complete real-time system that captures 3D motion data from an MPU6050 sensor connected to an Arduino, processes the quaternion data using onboard DMP (Digital Motion Processor), and visualizes the user’s orientation in 3D using Processing with the Toxiclibs graphics library.
+![Platform](https://img.shields.io/badge/platform-Arduino%20%7C%20Processing-blue.svg)
+![Language](https://img.shields.io/badge/language-C++%20%7C%20Java-orange)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Status](https://img.shields.io/badge/status-Completed-brightgreen)
 
-On the Processing side, the system receives serialized quaternion packets over USB, decodes the data into 3D rotational vectors, and renders a dynamically animated 3D model (including fuselage, wings, and directional fins). Additionally, the model performs real-time posture analysis, displaying a “Healthy” or “Unhealthy” status based on specific axis thresholds derived from the sensor data.
+> A full-stack hardware-software project that combines embedded motion sensing with real-time 3D visualization and posture analysis using **MPU6050**, **Arduino**, and **Processing**.
 
-🔍 Key Features:
-🔗 Serial Communication Integration between Arduino and Processing at 115200 baud
+---
 
-📦 Quaternion Parsing via custom teapot packet decoder (14-byte stream)
+## 📸 Demo Preview
 
-🎨 Real-Time 3D Rendering of motion data using OpenGL and Toxiclibs
+*Live 3D visualization with posture classification (healthy/unhealthy) and animated model rotation based on real quaternion data.*
 
-📏 Axis-Angle Conversion and rotation mapping for live object manipulation
+![Demo](assets/demo.gif)
 
-🧍 Posture Analysis Engine: Detects poor posture using predefined Euler/quaternion bounds
+---
 
-🧠 Fail-Safe Communication: Redundant 'r' packet resend ensures sensor reset recovery
+## 🧠 Key Features
 
-📐 Custom Geometry Rendering: Dynamic cylinder drawing, wings, and fin meshes
+✅ **Real-Time Motion Tracking** with MPU6050 DMP  
+✅ **Serial Communication Protocol** with 14-byte Teapot Packets  
+✅ **Live Quaternion-Based 3D Rendering**  
+✅ **Posture Classification Engine**  
+✅ **Custom OpenGL Models (Wings, Fins, Cylinders)**  
+✅ **Textual HUD Feedback on Axis States**  
+✅ **Failsafe Serial Sync & Restart Resilience**
 
-💡 Live Text Feedback: Quaternion axis values and health status displayed in the viewport
+---
 
-🔧 Technologies Used:
-Layer	Tech Stack
-Sensor	MPU6050 (DMP Mode)
-Microcontroller	Arduino UNO
-Language (MCU)	C++ (I2Cdev + MPU6050 DMP Library)
-Host Interface	USB Serial
-Visualization	Processing (Java-based) + Toxiclibs
-Graphics Mode	OpenGL
+## 🛠️ Tech Stack
 
-💡 What This Demonstrates:
-This project proves my strength in:
+| Layer             | Tech Used                             |
+|-------------------|----------------------------------------|
+| 👾 Microcontroller | Arduino UNO + MPU6050 IMU             |
+| 🔌 Communication   | I2C + USB Serial                      |
+| 🧠 Firmware        | C++ (I2Cdev + MPU6050 DMP6)           |
+| 🖥️ Host GUI        | Processing (Java) + Toxiclibs         |
+| 📐 Graphics        | OpenGL Renderer + Quaternion Rotation |
+| 📝 Visual Feedback | Dynamic Text Labels + Model State     |
 
-✅ IoT and Embedded Systems Integration
+---
 
-✅ Sensor Data Acquisition & Real-Time Signal Processing
+## 🧰 Setup Instructions
 
-✅ 3D Visualization and Graphics Programming
+### 🔧 Arduino Side (Firmware)
 
-✅ Cross-Language Communication Protocols (C++ ↔ Java)
+1. Wire your **MPU6050 to Arduino** as follows:
 
-✅ Custom Rendering Engines and Posture Analytics
+| MPU6050 | Arduino UNO |
+|---------|-------------|
+| VCC     | 3.3V        |
+| GND     | GND         |
+| SDA     | A4          |
+| SCL     | A5          |
+| INT     | D2          |
 
-🎓 Key Learning Outcomes:
-Designed a full data pipeline: from physical motion to 3D visual feedback.
+2. Install required libraries:
 
-Practiced low-level protocol decoding (bitwise parsing of sensor data).
-
-Built robust serial communication handling across Arduino ↔ Processing.
-
-Implemented custom OpenGL rendering logic for non-trivial 3D geometries.
-
-Let me know if you'd like:
-
-A version tailored for LinkedIn project description
-
-An animated video/GIF demo text (if you record the live rotation)
-
-Or a cover image design to showcase the 3D posture tracking interface
-
-This is a fantastic hardware/software integration project—ideal for recruiters seeking IoT, automation, embedded AI, or 3D visualization profiles.
-
-
-
-
-
-
-
-
+```cpp
+#include "I2Cdev.h"
+#include "MPU6050_6Axis_MotionApps20.h"
