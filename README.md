@@ -12,10 +12,11 @@
 ## 📸 Demo Preview
 
 *Live 3D visualization with posture classification (healthy/unhealthy) and animated model rotation based on real quaternion data.*
-asjfkaljdlkajdslkada
-![Demo](mpu-working.gif)
-asdadsasd
----asdadsasad
+
+## 📸 Demo Preview
+
+![MPU6050 Posture Tracker Demo](mpu-working.gif)
+
 
 ## 🧠 Key Features
 
